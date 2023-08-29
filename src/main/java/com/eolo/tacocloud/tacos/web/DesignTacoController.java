@@ -4,8 +4,8 @@ import com.eolo.tacocloud.tacos.Ingredient;
 import com.eolo.tacocloud.tacos.Ingredient.Type;
 import com.eolo.tacocloud.tacos.Taco;
 import com.eolo.tacocloud.tacos.TacoOrder;
+import com.eolo.tacocloud.tacos.TacoUDT;
 import com.eolo.tacocloud.tacos.data.IngredientRepository;
-import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -62,7 +62,7 @@ public class DesignTacoController {
     }
 
     @PostMapping
-    public String processTaco (@Valid Taco taco, Errors errors, @ModelAttribute TacoOrder tacoOrder){
+    public String processTaco (TacoUDT taco, Errors errors, @ModelAttribute TacoOrder tacoOrder){
         if (errors.hasErrors()){
             return "design";
         }
